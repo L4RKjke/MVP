@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class ConstructionView : MonoBehaviour
 {
-    [SerializeField] private float _pushForce;
     [SerializeField] private Rigidbody _riggidbody;
 
     private bool _isTriggered = false;
