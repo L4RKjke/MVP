@@ -4,8 +4,7 @@ using System.Collections.Generic;
 public class MagneteModel
 {
     private readonly float  _magineForce;
-
-    private List<IMagnitable> _targets = new List<IMagnitable>();
+    private readonly List<IMagnitable> _targets = new List<IMagnitable>();
 
     public MagneteModel(float force)
     {

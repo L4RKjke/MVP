@@ -16,7 +16,6 @@ public class CoroutineRunner: MonoBehaviour
         }
 
         Destroy(gameObject);
-        throw new InvalidOperationException();
     }
 
     public void StartRoutine(IEnumerator coroutine)
