@@ -6,6 +6,8 @@ public class MagneteSetup : PresenterSetuper
 
     private MagneteModel _model;
 
+    public MagneteModel Model => _model;
+
     private void Awake()
     {
         _model = new MagneteModel(_view.Force);

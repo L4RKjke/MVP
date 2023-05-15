@@ -19,8 +19,8 @@ public class MagnetePresenter : Presenter
         _view.Triggered -= OnTriggered;
     }
 
-    private void OnTriggered(IMagnitable target)
+    private void OnTriggered()
     {
-        _model.MagneteObject(target, _view.transform);
+        _model.MagneteObject(_view.transform);
     }
 }

@@ -17,7 +17,6 @@ public class ConstructionPresenter : Presenter
         _model.SpeedChanged += OnSpeedChanged;
         _view.CenterOfMassUpdated += UpdateCenter;
         _view.Triggered += OnTriggered;
-
     }
 
     public override void Disable()

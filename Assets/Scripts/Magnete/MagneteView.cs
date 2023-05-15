@@ -5,9 +5,9 @@ public class MagneteView : MonoBehaviour
 {
     [SerializeField] private float _force;
 
-    public Action<IMagnitable> Triggered;
-
     public Transform Transform => transform;
+
+    public Action Triggered;
 
     public Vector3 Direction { get; private set; }
 
@@ -15,9 +15,9 @@ public class MagneteView : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.TryGetComponent(out ConstructionSetup setup))
+        if (other.TryGetComponent(out ConstructionView view))
         {
-            Triggered?.Invoke(setup.Model);
+            Triggered?.Invoke();
         }
     }
 }

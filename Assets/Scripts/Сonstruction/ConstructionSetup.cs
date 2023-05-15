@@ -3,6 +3,7 @@ using UnityEngine;
 public class ConstructionSetup : PresenterSetuper
 {
     [SerializeField] private ConstructionView _view;
+    [SerializeField] private MagneteSetup _manget;
 
     private ConstructionModel _model;
 
@@ -10,7 +11,7 @@ public class ConstructionSetup : PresenterSetuper
 
     private void Awake()
     {
-        _model = new ConstructionModel(_view.CenterOfMass);
+        _model = new ConstructionModel(_view.CenterOfMass, _manget.Model);
         Presenter = new ConstructionPresenter(_view, _model);
     }
 }

@@ -21,10 +21,11 @@ public class ConstructionModel: IBouncy, IMagnitable
 
     private Vector3 _direction;
 
-    public ConstructionModel(Vector3 centorOfMass) 
+    public ConstructionModel(Vector3 centorOfMass, MagneteModel magnitable)
     {
         CenterOfMass = centorOfMass;
         _random = new System.Random(GetHashCode());
+        magnitable.Init(this);
     }
 
     public void SetCenterOfMass(Vector3 centerOfMass)
