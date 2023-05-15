@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(MeshRenderer))]
 public class Element : MonoBehaviour
 {
     private MeshRenderer _renderer;

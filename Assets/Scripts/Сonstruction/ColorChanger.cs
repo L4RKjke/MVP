@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[RequireComponent(typeof(MeshRenderer))]
 public class ColorChanger : MonoBehaviour
 {
     private bool _isTriggered = false;
