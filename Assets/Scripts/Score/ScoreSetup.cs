@@ -9,6 +9,6 @@ public class ScoreSetup : PresenterSetuper
     private void Awake()
     {
         _model = new Score();
-        Presenter = new ScorePresenter(_view, _model);
+        Init(new ScorePresenter(_view, _model));
     }
 }

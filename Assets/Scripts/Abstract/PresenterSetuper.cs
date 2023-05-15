@@ -1,16 +1,28 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public abstract class PresenterSetuper: MonoBehaviour
 {
-    protected Presenter Presenter { get; set; }
+    private readonly List<Presenter> _presenters = new List<Presenter>();
+
+    protected void Init(Presenter presenter)
+    {
+        _presenters.Add(presenter);
+    }
 
     private void OnEnable()
     {
-        Presenter.Enable();
+        for (int i = 0; i < _presenters.Count; i++)
+        {
+            _presenters[i].Enable();
+        }
     }
 
     private void OnDisable()
     {
-        Presenter.Disable();
+        for (int i = 0; i < _presenters.Count; i++)
+        {
+            _presenters[i].Disable();
+        }
     }
 }

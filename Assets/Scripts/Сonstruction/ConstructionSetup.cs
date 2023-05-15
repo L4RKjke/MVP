@@ -12,6 +12,7 @@ public class ConstructionSetup : PresenterSetuper
     private void Awake()
     {
         _model = new ConstructionModel(_view.CenterOfMass, _manget.Model);
-        Presenter = new ConstructionPresenter(_view, _model);
+        Init(new MagnetablePresenter(_view, _model));
+        Init(new BouncePresenter(_view, _model));
     }
 }

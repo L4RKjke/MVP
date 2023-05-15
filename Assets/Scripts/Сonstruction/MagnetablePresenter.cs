@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class ConstructionPresenter : Presenter
+public class MagnetablePresenter : Presenter
 {
-    private readonly ConstructionModel _model;
+    private readonly IMagnitable _model;
     private readonly ConstructionView _view;
 
-    public ConstructionPresenter(ConstructionView view,  ConstructionModel model)
+    public MagnetablePresenter(ConstructionView view, IMagnitable model)
     {
         _view = view;
         _model = model;
@@ -16,7 +16,6 @@ public class ConstructionPresenter : Presenter
         _model.ForceChanged += OnMove;
         _model.SpeedChanged += OnSpeedChanged;
         _view.CenterOfMassUpdated += UpdateCenter;
-        _view.Triggered += OnTriggered;
     }
 
     public override void Disable()
@@ -24,12 +23,6 @@ public class ConstructionPresenter : Presenter
         _model.ForceChanged -= OnMove;
         _model.SpeedChanged -= OnSpeedChanged;
         _view.CenterOfMassUpdated -= UpdateCenter;
-        _view.Triggered -= OnTriggered;
-    }
-
-    private void OnTriggered()
-    {
-        _model.Bounce(_view.Velocity);
     }
 
     private void OnMove(Vector3 direction)

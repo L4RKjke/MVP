@@ -9,6 +9,6 @@ public class TimerSetup : PresenterSetuper
     private void Awake()
     {
         _model = new Timer();
-        Presenter = new TimerPresenter(_view, _model);
+        Init(new TimerPresenter(_view, _model));
     }
 }

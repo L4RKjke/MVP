@@ -10,8 +10,8 @@ public class ConstructionModel: IBouncy, IMagnitable
     private IEnumerator _routine;
     private bool _canMove = true;
 
-    public Action<Vector3> ForceChanged;
-    public Action SpeedChanged;
+    public event Action<Vector3> ForceChanged;
+    public event Action SpeedChanged;
 
     public Vector3 Speed { get; private set; }
 
