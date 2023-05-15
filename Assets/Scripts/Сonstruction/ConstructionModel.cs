@@ -15,8 +15,6 @@ public class ConstructionModel: IBouncy, IMagnitable
 
     public Vector3 Speed { get; private set; }
 
-    public Vector3 Force { get; private set; } 
-
     public Vector3 CenterOfMass { get; private set; }
 
     private Vector3 _direction;
