@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ScoreUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _score;
-    [SerializeField] private ÑonstructionView _magnitable;
+    [SerializeField] private ConstructionView _magnitable;
     [SerializeField] private Button _reloadButton;
 
     public Action ScoreUpdated;

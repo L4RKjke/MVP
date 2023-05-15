@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class СonstructionView : MonoBehaviour
+public class ConstructionView : MonoBehaviour
 {
     [SerializeField] private float _pushForce;
     [SerializeField] private Rigidbody _riggidbody;
@@ -24,7 +24,7 @@ public class СonstructionView : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.TryGetComponent(out СonstructionView magnitableObject))
+        if (collision.gameObject.TryGetComponent(out ConstructionView magnitableObject))
         {
             if (_isTriggered) return;
 
@@ -37,7 +37,7 @@ public class СonstructionView : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.TryGetComponent(out СonstructionView magnitableObject))
+        if (collision.gameObject.TryGetComponent(out ConstructionView magnitableObject))
         {
             _isTriggered = false;
         }

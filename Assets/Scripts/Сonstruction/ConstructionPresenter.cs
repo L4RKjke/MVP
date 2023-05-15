@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class СonstructionPresenter : Presenter
+public class ConstructionPresenter : Presenter
 {
-    private readonly СonstructionModel _model;
-    private readonly СonstructionView _view;
+    private readonly ConstructionModel _model;
+    private readonly ConstructionView _view;
 
-    public СonstructionPresenter(СonstructionView view,  СonstructionModel model)
+    public ConstructionPresenter(ConstructionView view,  ConstructionModel model)
     {
         _view = view;
         _model = model;

@@ -2,7 +2,7 @@ using System.Collections;
 using System;
 using UnityEngine;
 
-public class СonstructionModel: IBouncy, IMagnitable
+public class ConstructionModel: IBouncy, IMagnitable
 {
     [SerializeField] private float _pushForce;
 
@@ -21,7 +21,7 @@ public class СonstructionModel: IBouncy, IMagnitable
 
     private Vector3 _direction;
 
-    public СonstructionModel(Vector3 centorOfMass) 
+    public ConstructionModel(Vector3 centorOfMass) 
     {
         CenterOfMass = centorOfMass;
         _random = new System.Random(GetHashCode());
