@@ -6,7 +6,6 @@ public class СonstructionView : MonoBehaviour
     [SerializeField] private float _pushForce;
     [SerializeField] private Rigidbody _riggidbody;
 
-    private System.Random _random;
     private bool _isTriggered = false;
     private Vector3 _centerOfMass;
 
