@@ -1,7 +1,7 @@
 public class MagnetePresenter : Presenter
 {
-    private MagneteView _view;
-    private MagneteModel _model;
+    private readonly MagneteView _view;
+    private readonly MagneteModel _model;
 
     public MagnetePresenter(MagneteView view, MagneteModel model)
     {

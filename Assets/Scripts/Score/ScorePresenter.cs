@@ -1,7 +1,7 @@
 public class ScorePresenter: Presenter
 {
-    private ScoreUI _view;
-    private Score _model;
+    private readonly ScoreUI _view;
+    private readonly Score _model;
 
     public ScorePresenter(ScoreUI view, Score model)
     {

@@ -6,6 +6,8 @@ public class Timer
 {
     private int _currentTime;
 
+    public Action TimeUpdated;
+
     public int CurrentSeconds 
     {
         get => _currentTime;
@@ -16,8 +18,6 @@ public class Timer
             TimeUpdated?.Invoke();
         } 
     }
-
-    public Action TimeUpdated;
 
     public void StartTimer()
     {

@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class СonstructionPresenter : Presenter
 {
-    private СonstructionModel _model;
-    private СonstructionView _view;
+    private readonly СonstructionModel _model;
+    private readonly СonstructionView _view;
 
     public СonstructionPresenter(СonstructionView view,  СonstructionModel model)
     {

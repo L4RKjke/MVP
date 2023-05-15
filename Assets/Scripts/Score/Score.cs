@@ -4,6 +4,8 @@ public class Score
 {
     private int _score;
 
+    public Action ScoreUpdated;
+
     public int Value 
     {
         get => _score;
@@ -14,8 +16,6 @@ public class Score
             ScoreUpdated?.Invoke();
         }
     }
-
-    public Action ScoreUpdated; 
 
     public void AddPoint()
     {

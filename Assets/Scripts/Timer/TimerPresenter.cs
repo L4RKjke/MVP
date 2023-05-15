@@ -1,7 +1,7 @@
 public class TimerPresenter: Presenter
 {
-    private TimerUI _view;
-    private Timer _model;
+    private readonly TimerUI _view;
+    private readonly Timer _model;
 
     public TimerPresenter(TimerUI view, Timer model)
     {

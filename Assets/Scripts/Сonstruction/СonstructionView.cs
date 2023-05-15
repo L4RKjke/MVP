@@ -11,6 +11,7 @@ public class СonstructionView : MonoBehaviour
 
     public Action Triggered;
     public Action CenterOfMassUpdated;
+
     public Vector3 Velocity { get; private set; }
 
     public Vector3 CenterOfMass => _centerOfMass;

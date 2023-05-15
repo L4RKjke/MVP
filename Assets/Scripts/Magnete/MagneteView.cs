@@ -7,10 +7,6 @@ public class MagneteView : MonoBehaviour
 
     public Action Triggered;
 
-    public Action<Vector3> Moved;
-
-    public Action Stoped;
-
     public Transform Transform => transform;
 
     public IMagnitable Magitable { get; private set; }

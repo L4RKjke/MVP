@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MagneteModel
 {
-    private float _magineForce;
+    private readonly float  _magineForce;
 
     public MagneteModel(float force)
     {
