@@ -11,12 +11,12 @@ public class MagnetePresenter : Presenter
 
     public override void Enable()
     {
-        _view.Triggered += OnTriggered;
+        _view.Updated += OnTriggered;
     }
 
     public override void Disable()
     {
-        _view.Triggered -= OnTriggered;
+        _view.Updated -= OnTriggered;
     }
 
     private void OnTriggered()

@@ -9,8 +9,8 @@ public class ScoreUI : MonoBehaviour
     [SerializeField] private ConstructionView _magnitable;
     [SerializeField] private Button _reloadButton;
 
-    public Action ScoreUpdated;
-    public Action Clicked;
+    public event Action ScoreUpdated;
+    public event Action Clicked;
 
     private void OnEnable()
     {

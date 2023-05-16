@@ -4,7 +4,7 @@ public class Score
 {
     private int _score;
 
-    public Action ScoreUpdated;
+    public event Action ScoreUpdated;
 
     public int Value 
     {

@@ -8,8 +8,8 @@ public class TimerUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _time;
     [SerializeField] private Button _reloadButton;
 
-    public Action Cicked;
-    public Action GameStarted;
+    public event Action Cicked;
+    public event Action GameStarted;
 
     public void SetAmount(int time)
     {

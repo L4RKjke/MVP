@@ -6,7 +6,9 @@ public class Timer
 {
     private int _currentTime;
 
-    public Action TimeUpdated;
+    public event Action TimeUpdated;
+
+    private IEnumerator _routine;
 
     public int CurrentSeconds 
     {
@@ -21,18 +23,24 @@ public class Timer
 
     public void StartTimer()
     {
-        CoroutineRunner.Instance.StartRoutine(StartTimerRoutine());
+        _routine = StartTimerRoutine();
+        CoroutineRunner.Instance.StartRoutine(_routine);
     }
 
     public void Restart()
     {
-        CurrentSeconds = 0;
+        if (_routine == null) return;
 
-        CoroutineRunner.Instance.StopCoroutine(StartTimerRoutine());
+        CoroutineRunner.Instance.StopCoroutine(_routine);
+        _routine = StartTimerRoutine();
+        CoroutineRunner.Instance.StartRoutine(_routine);
+
     }
 
     private IEnumerator StartTimerRoutine()
     {
+        CurrentSeconds = 0;
+
         while (true)
         {
             yield return new WaitForSeconds(1);

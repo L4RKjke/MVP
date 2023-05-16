@@ -8,8 +8,8 @@ public class ConstructionView : MonoBehaviour
     private bool _isTriggered = false;
     private Vector3 _centerOfMass;
 
-    public Action Triggered;
-    public Action CenterOfMassUpdated;
+    public event Action Triggered;
+    public event Action CenterOfMassUpdated;
 
     public Vector3 Velocity { get; private set; }
 

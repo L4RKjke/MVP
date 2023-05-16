@@ -1,10 +1,12 @@
 using System.Collections;
 using UnityEngine;
-using System;
+using System.Collections.Generic;
 
 public class CoroutineRunner: MonoBehaviour
 {
     public static CoroutineRunner Instance;
+
+    private List<Coroutine> _coroutines = new List<Coroutine>();    
 
     private void Awake()
     {
