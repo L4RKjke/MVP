@@ -12,15 +12,15 @@ public class ScorePresenter: Presenter
     public override void Enable()
     {
         _model.ScoreUpdated += OnScoreChanged;
-        _view.ScoreUpdated += StateSchanged;
-        _view.Clicked += OnReloadButtonClicked;
+        _view.ScoreUpdated += State—hanged;
+        _view.Clicked += OnResetButtonClicked;
     }
 
     public override void Disable()
     {
         _model.ScoreUpdated -= OnScoreChanged;
-        _view.ScoreUpdated -= StateSchanged;
-        _view.Clicked -= OnReloadButtonClicked;
+        _view.ScoreUpdated -= State—hanged;
+        _view.Clicked -= OnResetButtonClicked;
     }
 
     private void OnScoreChanged()
@@ -28,13 +28,13 @@ public class ScorePresenter: Presenter
         _view.SetAmount(_model.Value);
     }
 
-    private void StateSchanged()
+    private void State—hanged()
     {
         _model.AddPoint();
     }
 
-    private void OnReloadButtonClicked()
+    private void OnResetButtonClicked()
     {
-        _model.Reload();
+        _model.Reset();
     }
 }

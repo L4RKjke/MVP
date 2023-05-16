@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class ConstructionModel: IBouncy, IMagnitable
 {
-    private readonly float _force = 20;
-
-    private System.Random _random;
-    private IEnumerator _routine;
+    private IEnumerator _pushRoutine;
     private bool _canMove = true;
     private Vector3 _speed;
 
+    private readonly float _force = 22;
+    private readonly System.Random _random;
+
+    #region Constants
+    private const int _maxTimeDelay = 1;
+    private const int _minTimeDelay = 3;
+    private const int _defaultTime = 1;
+    #endregion
+
+    #region Events
     public event Action<Vector3> ForceChanged;
     public event Action SpeedChanged;
+    #endregion
+
+    #region Properties
+    public bool IsMagnitable { get; private set; } = false;
 
     private Vector3 _direction;
 
@@ -28,14 +39,15 @@ public class ConstructionModel: IBouncy, IMagnitable
             SpeedChanged?.Invoke();
         }
     }
+    #endregion
 
-    public ConstructionModel(Vector3 centorOfMass, MagneteModel magnitable)
+    public ConstructionModel(Vector3 centorOfMass)
     {
         CenterOfMass = centorOfMass;
         _random = new System.Random(GetHashCode());
-        magnitable.Init(this);
     }
 
+    # region Methods
     public void SetCenterOfMass(Vector3 centerOfMass)
     {
         CenterOfMass = centerOfMass;
@@ -56,15 +68,16 @@ public class ConstructionModel: IBouncy, IMagnitable
     {
         _direction = direction * _force;
 
-        if (_routine != null)
-            CoroutineRunner.Instance.StopCoroutine(_routine);
+        if (_pushRoutine != null)
+            CoroutineRunner.Instance.StopRoutine(_pushRoutine);
 
-        _routine = PushRoutine();
-        CoroutineRunner.Instance.StartRoutine(_routine);
+        _pushRoutine = PushRoutine();
+        CoroutineRunner.Instance.StartRoutine(_pushRoutine);
     }
 
     private IEnumerator PushRoutine()
     {
+        IsMagnitable = true;
         _canMove = false;
         var time = GetRandomTime();
 
@@ -76,17 +89,15 @@ public class ConstructionModel: IBouncy, IMagnitable
             yield return new WaitForFixedUpdate();
         }
 
+        IsMagnitable = false;
         _canMove = true;
         Speed = Vector3.zero;
     }
 
     private float GetRandomTime()
     {
-        int maxTimeDelay = 1;
-        int minTimeDelay = 3;
-        int defaultTime = 1;
-
-        return defaultTime + 1 /
-            _random.Next(maxTimeDelay, minTimeDelay);
+        return _defaultTime + 1 /
+            _random.Next(_maxTimeDelay, _minTimeDelay);
     }
+    #endregion
 }

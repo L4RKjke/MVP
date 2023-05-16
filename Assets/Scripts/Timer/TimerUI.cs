@@ -23,15 +23,15 @@ public class TimerUI : MonoBehaviour
 
     private void OnEnable()
     {
-        _reloadButton.onClick.AddListener(OnRestrartButtonClick);
+        _reloadButton.onClick.AddListener(OnResetButtonClick);
     }
 
     private void OnDisable()
     {
-        _reloadButton.onClick.RemoveListener(OnRestrartButtonClick);
+        _reloadButton.onClick.RemoveListener(OnResetButtonClick);
     }
 
-    private void OnRestrartButtonClick()
+    private void OnResetButtonClick()
     {
         Cicked?.Invoke();
     }

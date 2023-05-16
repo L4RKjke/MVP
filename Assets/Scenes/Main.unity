@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 19336683}
   - component: {fileID: 19336677}
   m_Layer: 0
-  m_Name: Magnite
+  m_Name: Magnet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -264,6 +264,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _view: {fileID: 19336683}
+  _costractions:
+  - {fileID: 826727447}
+  - {fileID: 1686245610}
 --- !u!23 &19336679
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3414,7 +3417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c3c0af93f4faf9479e1ff3daf4c844f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _riggidbody: {fileID: 826727440}
+  _rigidbody: {fileID: 826727440}
 --- !u!4 &826727445
 Transform:
   m_ObjectHideFlags: 0
@@ -3480,7 +3483,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _view: {fileID: 826727441}
-  _manget: {fileID: 19336677}
 --- !u!1 &856795559
 GameObject:
   m_ObjectHideFlags: 0
@@ -3602,7 +3604,7 @@ GameObject:
   - component: {fileID: 891070537}
   - component: {fileID: 891070536}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UICanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3896,12 +3898,12 @@ GameObject:
   - component: {fileID: 1050265432}
   - component: {fileID: 1050265431}
   m_Layer: 5
-  m_Name: RestartButton
+  m_Name: RestartButton(Extenstion)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1050265430
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6166,7 +6168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c3c0af93f4faf9479e1ff3daf4c844f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _riggidbody: {fileID: 1686245604}
+  _rigidbody: {fileID: 1686245604}
 --- !u!54 &1686245604
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6247,7 +6249,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _view: {fileID: 1686245603}
-  _manget: {fileID: 19336677}
 --- !u!1 &1709317744
 GameObject:
   m_ObjectHideFlags: 0
@@ -6957,7 +6958,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _score: {fileID: 1278772704}
-  _magnitable: {fileID: 826727441}
+  _magnetic: {fileID: 826727441}
   _reloadButton: {fileID: 1323868837}
 --- !u!4 &1937027941
 Transform:

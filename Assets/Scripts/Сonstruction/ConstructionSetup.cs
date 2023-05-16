@@ -3,16 +3,17 @@ using UnityEngine;
 public class ConstructionSetup : PresenterSetuper
 {
     [SerializeField] private ConstructionView _view;
-    [SerializeField] private MagneteSetup _manget;
 
-    private ConstructionModel _model;
+    public ConstructionModel Model { get; private set; }
 
-    public ConstructionModel Model => _model;
+    public bool IsInitialized { get; private set; } = false;
 
     private void Awake()
     {
-        _model = new ConstructionModel(_view.CenterOfMass, _manget.Model);
-        Init(new MagnetablePresenter(_view, _model));
-        Init(new BouncePresenter(_view, _model));
+        Model = new ConstructionModel(_view.CentorOfMass);
+        Init(new MagnetablePresenter(_view, Model));
+        Init(new BouncePresenter(_view, Model));
+
+        IsInitialized = true;
     }
 }

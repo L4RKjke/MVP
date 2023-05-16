@@ -6,6 +6,8 @@ public interface IMagnitable
     event Action<Vector3> ForceChanged;
     event Action SpeedChanged;
 
+    bool IsMagnitable { get; }
+
     Vector3 CenterOfMass { get; }
 
     Vector3 Speed { get; }

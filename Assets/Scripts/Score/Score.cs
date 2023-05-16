@@ -4,6 +4,8 @@ public class Score
 {
     private int _score;
 
+    private const int _maxScore = int.MaxValue;
+
     public event Action ScoreUpdated;
 
     public int Value 
@@ -19,10 +21,13 @@ public class Score
 
     public void AddPoint()
     {
+        if (Value == _maxScore)
+            Value--;
+
         Value++;
     }
 
-    public void Reload()
+    public void Reset()
     {
         Value = 0;
     }

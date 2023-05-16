@@ -1,35 +1,40 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class MagneteModel
+public class MagnetModel
 {
-    private readonly float  _magineForce;
+    private readonly float  _magnetForce;
     private readonly List<IMagnitable> _targets = new List<IMagnitable>();
 
-    public MagneteModel(float force)
+    private const float _minDistance = 1;
+
+    public MagnetModel(float force)
     {
-        _magineForce = force;
+        _magnetForce = force;
     }
 
-    public void Init(IMagnitable target)
+    public void AddTarget(IMagnitable target)
     {
         _targets.Add(target);
     }
 
-    public void MagneteObject(Transform transform)
+    public void Magnetize(Transform transform)
     {
         for (int i = 0; i < _targets.Count; i++)
         {
             var direction = transform.position - _targets[i].CenterOfMass;
             float distance = direction.magnitude;
-            var force = direction.normalized * _magineForce * distance;
+            var force = direction.normalized * _magnetForce * distance;
 
-            if (distance > 1f)
+            if (distance > _minDistance)
             {
                 _targets[i].Move(force);
             }
             else
             {
+                if (_targets[i].IsMagnitable)
+                    return;
+
                 _targets[i].Stop();
             }
         }

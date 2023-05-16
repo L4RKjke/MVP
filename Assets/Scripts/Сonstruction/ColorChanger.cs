@@ -4,12 +4,14 @@ public class ColorChanger : MonoBehaviour
 {
     private bool _isTriggered = false;
 
+    #region UnityTriggers
     private void OnCollisionEnter(Collision collision)
     {
+        if (_isTriggered)
+            return;
+
         if (collision.collider.TryGetComponent(out Element element))
         {
-            if (_isTriggered) return;
-
             _isTriggered = true;
             element.ChangeColor();
         }
@@ -22,4 +24,5 @@ public class ColorChanger : MonoBehaviour
             _isTriggered = false;
         }
     }
+    #endregion
 }

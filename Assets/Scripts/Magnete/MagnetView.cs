@@ -1,13 +1,11 @@
 using System;
 using UnityEngine;
 
-public class MagneteView : MonoBehaviour
+public class MagnetView : MonoBehaviour
 {
     [SerializeField] private float _force;
 
     public event Action Updated;
-
-    public Transform Transform => transform;
 
     public float Force => _force;
 

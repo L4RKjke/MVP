@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ScoreUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _score;
-    [SerializeField] private ConstructionView _magnitable;
+    [SerializeField] private ConstructionView _magnetic;
     [SerializeField] private Button _reloadButton;
 
     public event Action ScoreUpdated;
@@ -14,13 +14,13 @@ public class ScoreUI : MonoBehaviour
 
     private void OnEnable()
     {
-        _magnitable.Triggered += OnScoreChanged;
+        _magnetic.Triggered += OnScoreChanged;
         _reloadButton.onClick.AddListener(OnRestrartButtonClick);
     }
 
     private void OnDisable()
     {
-        _magnitable.Triggered -= OnScoreChanged;
+        _magnetic.Triggered -= OnScoreChanged;
         _reloadButton.onClick.RemoveListener(OnRestrartButtonClick);
     }
 

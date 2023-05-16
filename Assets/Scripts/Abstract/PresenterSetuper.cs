@@ -12,17 +12,22 @@ public abstract class PresenterSetuper: MonoBehaviour
 
     private void OnEnable()
     {
-        for (int i = 0; i < _presenters.Count; i++)
-        {
-            _presenters[i].Enable();
-        }
+        GoThroughList(true);
     }
 
     private void OnDisable()
     {
+        GoThroughList(false);
+    }
+
+    private void GoThroughList(bool isEnabled)
+    {
         for (int i = 0; i < _presenters.Count; i++)
         {
-            _presenters[i].Disable();
+            if (isEnabled)
+                _presenters[i].Enable();
+            else
+                _presenters[i].Disable();     
         }
     }
 }

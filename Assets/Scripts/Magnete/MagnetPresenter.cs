@@ -1,9 +1,9 @@
 public class MagnetePresenter : Presenter
 {
-    private readonly MagneteView _view;
-    private readonly MagneteModel _model;
+    private readonly MagnetView _view;
+    private readonly MagnetModel _model;
 
-    public MagnetePresenter(MagneteView view, MagneteModel model)
+    public MagnetePresenter(MagnetView view, MagnetModel model)
     {
         _view = view;
         _model = model;
@@ -21,6 +21,6 @@ public class MagnetePresenter : Presenter
 
     private void OnTriggered()
     {
-        _model.MagneteObject(_view.transform);
+        _model.Magnetize(_view.transform);
     }
 }

@@ -30,7 +30,7 @@ public class TimerPresenter: Presenter
 
     private void OnReloadButtonClicked()
     {
-        _model.Restart();
+        _model.Reset();
     }
 
     private void OnGameStarted()

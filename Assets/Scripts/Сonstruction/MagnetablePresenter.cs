@@ -37,6 +37,6 @@ public class MagnetablePresenter : Presenter
 
     private void UpdateCenter()
     {
-        _model.SetCenterOfMass(_view.CenterOfMass);
+        _model.SetCenterOfMass(_view.CentorOfMass);
     }
 }
