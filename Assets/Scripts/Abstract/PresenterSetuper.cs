@@ -20,6 +20,8 @@ public abstract class PresenterSetuper: MonoBehaviour
         GoThroughList(false);
     }
 
+    abstract public void Composete();
+
     private void GoThroughList(bool isEnabled)
     {
         for (int i = 0; i < _presenters.Count; i++)

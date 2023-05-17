@@ -1,11 +1,10 @@
 using System;
 using UnityEngine;
-using System.Collections;
 
+[RequireComponent(typeof(Rigidbody))]
 public class ConstructionView : MonoBehaviour
 {
-    [SerializeField] private Rigidbody _rigidbody;
-
+    private Rigidbody _rigidbody;
     private bool _isTriggered = false;
     private Vector3 _centerOfMass;
 
@@ -15,6 +14,11 @@ public class ConstructionView : MonoBehaviour
     public Vector3 Velocity { get; private set; }
 
     public Vector3 CentorOfMass => _centerOfMass;
+
+    private void Start()
+    {
+        _rigidbody = GetComponent<Rigidbody>();
+    }
 
     private void Update()
     {
@@ -28,7 +32,7 @@ public class ConstructionView : MonoBehaviour
         if (_isTriggered)
             return;
 
-        if (collision.gameObject.TryGetComponent(out ConstructionView magnitableObject))
+        if (IsConstruction(collision))
         {
             _isTriggered = true;
 
@@ -39,7 +43,7 @@ public class ConstructionView : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.TryGetComponent(out ConstructionView magnitableObject))
+        if (IsConstruction(collision))
         {
             _isTriggered = false;
         }
@@ -55,4 +59,7 @@ public class ConstructionView : MonoBehaviour
     {
         _rigidbody.AddForce(direction);
     }
+
+    private bool IsConstruction(Collision collision) =>
+        collision.gameObject.TryGetComponent(out ConstructionView magnitableObject);
 }

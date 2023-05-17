@@ -6,14 +6,10 @@ public class ConstructionSetup : PresenterSetuper
 
     public ConstructionModel Model { get; private set; }
 
-    public bool IsInitialized { get; private set; } = false;
-
-    private void Awake()
+    public override void Composete()
     {
         Model = new ConstructionModel(_view.CentorOfMass);
         Init(new MagnetablePresenter(_view, Model));
         Init(new BouncePresenter(_view, Model));
-
-        IsInitialized = true;
     }
 }

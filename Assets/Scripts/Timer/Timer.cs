@@ -5,7 +5,7 @@ using System;
 public class Timer
 {
     private int _currentTime;
-    private IEnumerator _routine;
+    private IEnumerator _timeRoutine;
 
     public event Action TimeUpdated;
 
@@ -26,16 +26,16 @@ public class Timer
 
     public void Reset()
     {
-        if (_routine == null) return;
+        if (_timeRoutine == null) return;
 
-        CoroutineRunner.Instance.StopRoutine(_routine);
+        CoroutineRunner.Instance.StopRoutine(_timeRoutine);
         StartTimer();
     }
 
     public void StartTimer()
     {
-        _routine = StartTimerRoutine();
-        CoroutineRunner.Instance.StartRoutine(_routine);
+        _timeRoutine = StartTimerRoutine();
+        CoroutineRunner.Instance.StartRoutine(_timeRoutine);
     }
 
     private IEnumerator StartTimerRoutine()

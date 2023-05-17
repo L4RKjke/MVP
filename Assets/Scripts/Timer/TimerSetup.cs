@@ -6,7 +6,7 @@ public class TimerSetup : PresenterSetuper
 
     private Timer _model;
 
-    private void Awake()
+    public override void Composete()
     {
         _model = new Timer();
         Init(new TimerPresenter(_view, _model));

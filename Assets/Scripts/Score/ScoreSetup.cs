@@ -6,7 +6,7 @@ public class ScoreSetup : PresenterSetuper
 
     private Score _model;
 
-    private void Awake()
+    public override void Composete()
     {
         _model = new Score();
         Init(new ScorePresenter(_view, _model));

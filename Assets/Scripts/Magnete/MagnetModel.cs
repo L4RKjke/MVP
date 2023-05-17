@@ -8,14 +8,10 @@ public class MagnetModel
 
     private const float _minDistance = 1;
 
-    public MagnetModel(float force)
+    public MagnetModel(float force, List<IMagnitable> targets)
     {
         _magnetForce = force;
-    }
-
-    public void AddTarget(IMagnitable target)
-    {
-        _targets.Add(target);
+        _targets = targets;
     }
 
     public void Magnetize(Transform transform)
