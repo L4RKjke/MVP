@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class ConstructionSetup : PresenterSetuper
+public class ConstructionSetup : Composite
 {
     [SerializeField] private ConstructionView _view;
 
     public ConstructionModel Model { get; private set; }
 
-    public override void Composete()
+    public override void Compose()
     {
         Model = new ConstructionModel(_view.CentorOfMass);
         Init(new MagnetablePresenter(_view, Model));

@@ -1,28 +1,28 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public abstract class PresenterSetuper: MonoBehaviour
+public abstract class Composite: MonoBehaviour
 {
     private readonly List<Presenter> _presenters = new List<Presenter>();
+
+    private void OnEnable()
+    {
+        ChangePresentersState(true);
+    }
+
+    private void OnDisable()
+    {
+        ChangePresentersState(false);
+    }
 
     protected void Init(Presenter presenter)
     {
         _presenters.Add(presenter);
     }
 
-    private void OnEnable()
-    {
-        GoThroughList(true);
-    }
+    abstract public void Compose();
 
-    private void OnDisable()
-    {
-        GoThroughList(false);
-    }
-
-    abstract public void Composete();
-
-    private void GoThroughList(bool isEnabled)
+    private void ChangePresentersState(bool isEnabled)
     {
         for (int i = 0; i < _presenters.Count; i++)
         {

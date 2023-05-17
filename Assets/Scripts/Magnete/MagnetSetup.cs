@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class MagnetSetup : PresenterSetuper
+public class MagnetSetup : Composite
 {
     [SerializeField] private MagnetView _view;
     [SerializeField] private List<ConstructionSetup> _costractions;
@@ -12,13 +12,11 @@ public class MagnetSetup : PresenterSetuper
 
     private MagnetModel _model;
 
-    public override void Composete()
+    public override void Compose()
     {
         SetTargets();
         _model = new MagnetModel(_view.Force, _targets);
         Init(new MagnetePresenter(_view, _model));
-
-
     }
 
     public void SetTargets()
