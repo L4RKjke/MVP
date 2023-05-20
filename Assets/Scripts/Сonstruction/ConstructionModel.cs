@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ConstructionModel: IBouncy, IMagnitable
 {
+    private IRounineRunner _rounineRunner;
     private IEnumerator _pushRoutine;
     private bool _canMove = true;
     private Vector3 _speed;
@@ -41,10 +42,11 @@ public class ConstructionModel: IBouncy, IMagnitable
     }
     #endregion
 
-    public ConstructionModel(Vector3 centorOfMass)
+    public ConstructionModel(Vector3 centorOfMass, IRounineRunner rounineRunner)
     {
         CenterOfMass = centorOfMass;
         _random = new System.Random(GetHashCode());
+        _rounineRunner = rounineRunner;
     }
 
     # region Methods
@@ -69,10 +71,10 @@ public class ConstructionModel: IBouncy, IMagnitable
         _direction = direction * _force;
 
         if (_pushRoutine != null)
-            CoroutineRunner.Instance.StopRoutine(_pushRoutine);
+            _rounineRunner.StopRoutine(_pushRoutine);
 
         _pushRoutine = PushRoutine();
-        CoroutineRunner.Instance.StartRoutine(_pushRoutine);
+        _rounineRunner.StartRoutine(_pushRoutine);
     }
 
     private IEnumerator PushRoutine()

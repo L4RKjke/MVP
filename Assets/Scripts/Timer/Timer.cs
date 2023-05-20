@@ -6,6 +6,7 @@ public class Timer
 {
     private int _currentTime;
     private IEnumerator _timeRoutine;
+    private IRounineRunner _rounineRunner;
 
     public event Action TimeUpdated;
 
@@ -24,18 +25,23 @@ public class Timer
         } 
     }
 
+    public Timer(IRounineRunner service)
+    {
+        _rounineRunner = service;
+    }
+
     public void Reset()
     {
         if (_timeRoutine == null) return;
 
-        CoroutineRunner.Instance.StopRoutine(_timeRoutine);
+        _rounineRunner.StopRoutine(_timeRoutine);
         StartTimer();
     }
 
     public void StartTimer()
     {
         _timeRoutine = StartTimerRoutine();
-        CoroutineRunner.Instance.StartRoutine(_timeRoutine);
+        _rounineRunner.StartRoutine(_timeRoutine);
     }
 
     private IEnumerator StartTimerRoutine()

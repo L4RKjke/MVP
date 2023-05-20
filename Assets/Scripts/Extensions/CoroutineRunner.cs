@@ -1,22 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
-public class CoroutineRunner: MonoBehaviour
+public class CoroutineRunner: MonoBehaviour, IRounineRunner
 {
-    public static CoroutineRunner Instance;
-
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-            return;
-        }
-
-        Destroy(gameObject);
-    }
-
     public void StartRoutine(IEnumerator coroutine)
     {
         StartCoroutine(coroutine);
